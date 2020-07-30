@@ -1,7 +1,7 @@
 // @flow
 import { StyleSheet } from 'react-native';
 
-export const STEP_NUMBER_RADIUS: number = 16;
+export const STEP_NUMBER_RADIUS: number = 13;
 export const STEP_NUMBER_DIAMETER: number = STEP_NUMBER_RADIUS * 2;
 export const ZINDEX: number = 100;
 export const MARGIN: number = 13;
@@ -42,6 +42,8 @@ export default StyleSheet.create({
     height: STEP_NUMBER_DIAMETER,
     overflow: 'hidden',
     zIndex: ZINDEX + 1,
+    marginTop: -4,
+    marginRight: -4
   },
   stepNumber: {
     flex: 1,
@@ -53,9 +55,10 @@ export default StyleSheet.create({
     backgroundColor: '#19A664',
   },
   stepNumberText: {
-    fontSize: 20,
+    fontSize: 14,
     backgroundColor: 'transparent',
     color: '#FFFFFF',
+    fontWeight: 'bold',
   },
   button: {
     padding: 10,
