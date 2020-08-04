@@ -157,11 +157,10 @@ class CopilotModal extends Component<Props, State> {
 
       if(tooltip.maxWidth < 300 )
       {
-      //   if(position === 'center'){
-      //     arrow.right =  Math.round( this.props.tooltipStyle.maxWidth)/2 - (Platform.OS=='ios' ? 0 :3 );
-      //   } 
-      //  else
-         arrow.right = tooltip.right + MARGIN; 
+        if(tooltip.bottom > 105 && position == 'center' ){
+          arrow.right =  Math.round( this.props.tooltipStyle.maxWidth)/2 - (Platform.OS=='ios' ? 0 :3 );
+        } 
+       else arrow.right = tooltip.right + MARGIN; 
       }
       else {
         if(position === 'center'){
@@ -179,10 +178,11 @@ class CopilotModal extends Component<Props, State> {
 
       if(tooltip.maxWidth < 300 )
       {
-        // if(position === 'center'){
-        //   arrow.left =  Math.round(this.props.tooltipStyle.maxWidth/2) - (Platform.OS=='ios' ? 12 : 8 ) ;
-        // }
-         arrow.left = tooltip.left + MARGIN - 4
+        if(tooltip.bottom > 105 && position == 'center' ){
+          arrow.left =  Math.round(this.props.tooltipStyle.maxWidth/2) - (Platform.OS=='ios' ? 12 : 8 ) ;
+        }
+
+        else  arrow.left = tooltip.left + MARGIN - 4
       }
       else {
         if(position === 'center'){
