@@ -153,27 +153,43 @@ class CopilotModal extends Component<Props, State> {
       tooltip.right = Math.max(layout.width - (obj.left + obj.width), 0);
       tooltip.right = tooltip.right === 0 ? tooltip.right + MARGIN : tooltip.right;
       tooltip.maxWidth = layout.width - tooltip.right - MARGIN;
-      if(Dimensions.get('window').width - tooltip.maxWidth < 40 )
+      console.log('ttttttt top-left',tooltip,'arrow =>',arrow)
+
+      if(tooltip.maxWidth < 300 )
       {
+      //   if(position === 'center'){
+      //     arrow.right =  Math.round( this.props.tooltipStyle.maxWidth)/2 - (Platform.OS=='ios' ? 0 :3 );
+      //   } 
+      //  else
+         arrow.right = tooltip.right + MARGIN; 
+      }
+      else {
         if(position === 'center'){
-          arrow.right =  Math.round( tooltip.maxWidth/2);
-        }
+          arrow.right =  Math.round( tooltip.maxWidth/2) - (Platform.OS=='ios' ? 2 : 2 ) ;
+        } 
         else arrow.right = tooltip.right + MARGIN; 
       }
-      else arrow.right = tooltip.right + MARGIN;
     } 
+
     else {
       tooltip.left = Math.max(obj.left, 0);
       tooltip.left = tooltip.left === 0 ? tooltip.left + MARGIN : tooltip.left;
       tooltip.maxWidth = layout.width - tooltip.left - MARGIN;
-      if(Dimensions.get('window').width - tooltip.maxWidth < 40 )
+      console.log('ttttttt top-rightt',tooltip,'arrow =>',arrow)
+
+      if(tooltip.maxWidth < 300 )
       {
+        // if(position === 'center'){
+        //   arrow.left =  Math.round(this.props.tooltipStyle.maxWidth/2) - (Platform.OS=='ios' ? 12 : 8 ) ;
+        // }
+         arrow.left = tooltip.left + MARGIN - 4
+      }
+      else {
         if(position === 'center'){
-          arrow.left =  Math.round( tooltip.maxWidth/2);
+          arrow.left =  Math.round(this.props.tooltipStyle.maxWidth/2) - (Platform.OS=='ios' ? 12 : 8 ) ;
         }
         else arrow.left = tooltip.left + MARGIN
       }
-      else arrow.left = tooltip.left + MARGIN
     }
 
     const animate = {
@@ -300,8 +316,8 @@ class CopilotModal extends Component<Props, State> {
         />
       </Animated.View>,
       <Animated.View key="arrow" style={[styles.arrow,this.props.arrowConfiguration.arrowSize && {borderWidth:18}, this.state.arrow]} />,
-      <Animated.View key="tooltip" style={[styles.tooltip, this.props.tooltipStyle, this.state.tooltip]}>
-        {enable && <View 
+     <Animated.View key="tooltip" style={[styles.tooltip,this.state.tooltip,this.props.tooltipStyle]}>
+      {enable && <View 
          style={[
           styles.stepNumberContainer,
           {
@@ -351,7 +367,7 @@ class CopilotModal extends Component<Props, State> {
           {contentVisible && this.renderMask()}
           {contentVisible && this.renderTooltip()}
         </View>
-      </Modal>
+       </Modal>
     );
   }
 }
