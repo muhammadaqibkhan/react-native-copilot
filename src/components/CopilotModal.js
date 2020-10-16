@@ -153,7 +153,7 @@ class CopilotModal extends Component<Props, State> {
       tooltip.right = Math.max(layout.width - (obj.left + obj.width), 0);
       tooltip.right = tooltip.right === 0 ? tooltip.right + MARGIN : tooltip.right;
       tooltip.maxWidth = layout.width - tooltip.right - MARGIN;
-      console.log('ttttttt top-left',tooltip,'arrow =>',arrow)
+    //   console.log('ttttttt top-left',tooltip,'arrow =>',arrow)
 
       if(tooltip.maxWidth < 300 )
       {
@@ -174,7 +174,7 @@ class CopilotModal extends Component<Props, State> {
       tooltip.left = Math.max(obj.left, 0);
       tooltip.left = tooltip.left === 0 ? tooltip.left + MARGIN : tooltip.left;
       tooltip.maxWidth = layout.width - tooltip.left - MARGIN;
-      console.log('ttttttt top-rightt',tooltip,'arrow =>',arrow)
+    //   console.log('ttttttt top-rightt',tooltip,'arrow =>',arrow)
 
       if(tooltip.maxWidth < 300 )
       {
